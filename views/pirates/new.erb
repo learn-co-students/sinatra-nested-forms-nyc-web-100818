@@ -1,1 +1,17 @@
-<h1>Make your form here</h1>
+<form action="/pirates" method="POST">
+  <% Pirate.form_attributes.each do |attribute| %>
+    <div class="form-group">
+      <label for="pirate[<%= attribute %>]">Pirate <%= attribute.capitalize %>: </label>
+      <input type="text" name="pirate[<%= attribute %>]">
+    </div>
+  <% end %>
+  <% 2.times do |i| %>
+    <% Ship.form_attributes.each do |attribute| %>
+      <div class="form-group">
+        <label for="pirate[ships][][<%= attribute %>]">Ship <%= i + 1 %> <%= attribute.capitalize %>: </label>
+        <input type="text" id="ship_<%= attribute %>_<%= i + 1 %>" name="pirate[ships][][<%= attribute %>]">
+      </div>
+    <% end %>
+  <% end %>
+  <input type="submit" value="Submit" name="submit" id="submit">
+</form>

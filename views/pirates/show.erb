@@ -1,7 +1,17 @@
-<h1>Display your Pirate here</h1>
+<h1>Pirate Info</h1>
+<% Pirate.form_attributes.each do |attribute| %>
+  <div class="form-group">
+    <label>Pirate <%= attribute.capitalize %>: </label>
+    <strong><%= @pirate.send(attribute) %></strong>
+  </div>
+<% end %>
 
-
-<h2>Display your first ship here</h2>
-
-
-<h2>Display your second ship here</h2>
+<% @ships.each_with_index do |ship, i| %>
+  <h2>Ship <%= i+1 %> Info</h2>  
+  <% Ship.form_attributes.each do |attribute| %>
+    <div class="form-group">
+      <label>Ship <%= attribute.capitalize %>: </label>
+      <strong><%= ship.send(attribute) %></strong>
+    </div>
+  <% end %>
+<% end %>
