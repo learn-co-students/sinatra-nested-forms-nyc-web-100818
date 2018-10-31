@@ -1,3 +1,4 @@
+require 'pry'
 describe "FormsLab::App" do
   describe "GET '/'" do
     before(:each) do
